@@ -1,10 +1,38 @@
 {
-  "name": "todo-list-test2",
-  "version": "0.1.0",
+  "name": "ssd-assignment-2",
+  "version": "1.0.0",
+  "description": "SSD Assignment 2 - OAuth 2.0 - React.js Todo App with Google Sign In and Uploading to Google Drive",
   "private": true,
+  "author": {
+    "email": "it18149654@my.sliit.lk",
+    "name": "Rajapaksha T.N.",
+    "url": "https://github.com/TharindaNimnajith"
+  },
+  "contributors": [
+    {
+      "email": "it18148350@my.sliit.lk",
+      "name": "Naidabadu N.I.",
+      "url": "https://github.com/NehanIlangakoon"
+    },
+    {
+      "email": "it18149272@my.sliit.lk",
+      "name": "Perera M.J.F.R.",
+      "url": "https://github.com/JanithRushantha"
+    }
+  ],
+  "keywords": [
+    "SLIIT",
+    "SSD",
+    "React",
+    "OAuth 2.0",
+    "Google Sign In",
+    "Google Drive"
+  ],
+  "repository": {
+    "url": "https://github.com/TharindaNimnajith/ssd-assignment-oauth"
+  },
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "lodash": "^4.17.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",

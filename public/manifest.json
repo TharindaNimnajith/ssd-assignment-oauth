@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SSD Assignment 2",
+  "name": "SSD Assignment 2",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "todo_icon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
