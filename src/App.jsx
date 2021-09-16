@@ -96,11 +96,22 @@ export default class App extends Component {
       items = this.state.items.filter(item => item.completed)
     }
     return (
-      <div style={{ backgroundImage: `url(${background})` }}>
-        <div className='container'>
+      <div style={{
+        backgroundImage: `url(${background})`,
+        width: '100vw',
+        minHeight: '100vh',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}>
+        <div className='container'
+             style={{
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              minHeight: '100vh'
+             }}>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
-              <h3 className='text-capitalize text-center mb-4 text-dark font-weight-bold'>
+              <h3 className='text-capitalize text-center mb-4 text-light font-weight-bold'>
                 Personal Task Manager
               </h3>
               <AddItem item={this.state.item}
