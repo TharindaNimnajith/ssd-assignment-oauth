@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import uuid from 'uuid'
 import AddItem from './components/AddItem'
 import ItemList from './components/ItemList'
@@ -104,16 +104,16 @@ export default class App extends Component {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
       }}>
-        <div className='container'
-             style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.4)',
-              minHeight: '100vh'
-             }}>
+        <div className='container py-2'
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.45)',
+            minHeight: '100vh'
+          }}>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
-              <h3 className='text-capitalize text-center mb-4 text-light font-weight-bold'>
+              <h2 className='text-capitalize text-center mb-4 text-light font-weight-bold'>
                 Personal Task Manager
-              </h3>
+              </h2>
               <AddItem item={this.state.item}
                 editItem={this.state.editItem}
                 handleChange={this.handleChange}
