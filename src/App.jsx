@@ -111,7 +111,10 @@ export default class App extends Component {
              }}>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
-              <h2 className='text-capitalize text-center mb-4 text-light font-weight-bold'>
+              <h2 className='text-uppercase text-center mb-4 text-light font-weight-bold'
+                  style={{
+                    letterSpacing: '2px'
+                  }}>
                 Personal Task Manager
               </h2>
               <AddItem item={this.state.item}

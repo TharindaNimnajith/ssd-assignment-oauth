@@ -15,7 +15,7 @@ export default class AddItem extends Component {
             <div className='col-10'>
               <input type='text'
                      className='form-control shadow-none'
-                     placeholder='New Task'
+                     placeholder='Add New Task'
                      value={item}
                      onChange={handleChange}/>
             </div>
@@ -23,12 +23,12 @@ export default class AddItem extends Component {
               {
                 editItem ? (
                   <button type='submit'
-                          className='btn btn-block shadow-none btn-success'>
+                          className='text-uppercase btn btn-block shadow-none btn-success'>
                     Edit
                   </button>
                 ) : (
                   <button type='submit'
-                          className='btn btn-block shadow-none btn-primary'>
+                          className='text-uppercase btn btn-block shadow-none btn-primary'>
                     Add
                   </button>
                 )

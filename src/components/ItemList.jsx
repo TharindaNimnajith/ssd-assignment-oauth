@@ -17,21 +17,21 @@ export default class ItemList extends Component {
         <div className='row'>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-primary btn-block mt-1 shadow-none'
+                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('all')}>
               All Tasks
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-primary btn-block mt-1 shadow-none'
+                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('done')}>
               Completed Tasks
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-primary btn-block mt-1 shadow-none'
+                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('todo')}>
               Remaining Tasks
             </button>
@@ -56,14 +56,14 @@ export default class ItemList extends Component {
               <div className='row mt-4'>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='btn btn-danger btn-block shadow-none'
+                          className='text-uppercase btn btn-danger btn-block shadow-none'
                           onClick={handleDeleteDoneTasks}>
                     Delete Completed Tasks
                   </button>
                 </div>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='btn btn-danger btn-block shadow-none'
+                          className='text-uppercase btn btn-danger btn-block shadow-none'
                           onClick={clearList}>
                     Delete All Tasks
                   </button>
