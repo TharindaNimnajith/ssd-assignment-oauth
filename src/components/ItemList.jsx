@@ -19,27 +19,27 @@ export default class ItemList extends Component {
             <button type='button'
                     className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('all')}>
-              All
+              All Tasks
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
                     className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('done')}>
-              Completed
+              Completed Tasks
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
                     className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('todo')}>
-              Remaining
+              Remaining Tasks
             </button>
           </div>
         </div>
         {
           items.length === 0 ? '' :
-            <ul className='list-group my-5'>
+            <ul className='list-group my-4'>
               {
                 items.map(item => {
                   return (

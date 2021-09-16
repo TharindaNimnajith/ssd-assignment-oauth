@@ -98,8 +98,8 @@ export default class App extends Component {
       <div className='container'>
         <div className='row'>
           <div className='col-10 col-md-8 mx-auto mt-4'>
-            <h3 className='text-capitalize text-center'>
-              Task App
+            <h3 className='text-capitalize text-center mb-4 text-dark font-weight-bold'>
+              Personal Task Manager
             </h3>
             <AddItem item={this.state.item}
                      editItem={this.state.editItem}
