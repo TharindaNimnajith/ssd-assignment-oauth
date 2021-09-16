@@ -11,24 +11,23 @@ export default class AddItem extends Component {
     return (
       <div className='card card-body my-3'>
         <form onSubmit={handleSubmit}>
-          <div className='input-group'>
-            <div className='input-group-prepend'>
-              <div className='input-group-text bg-info text-white'>
-                <i className='fas fa-book'/>
-              </div>
+          <div class='row'>
+            <div className='col-10'>
+              <input type='text'
+                className='form-control shadow-none'
+                placeholder='New Task'
+                value={item}
+                onChange={handleChange} />
             </div>
-            <input type='text'
-                   className='form-control'
-                   placeholder='New Task'
-                   value={item}
-                   onChange={handleChange}/>
+            <div className='col-2'>
+              <button type='submit'
+                className={`btn btn-block shadow-none ${editItem ? 'btn-success' : 'btn-info'}`}>
+                {
+                  editItem ? 'Edit' : 'Add'
+                }
+              </button>
+            </div>
           </div>
-          <button type='submit'
-                  className={`btn btn-block mt-3 ${editItem ? 'btn-success' : 'btn-info'}`}>
-            {
-              editItem ? 'Edit Task' : 'Add New Task'
-            }
-          </button>
         </form>
       </div>
     )
