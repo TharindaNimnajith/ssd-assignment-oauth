@@ -103,7 +103,7 @@ export default class TaskApp extends Component {
         minHeight: '100vh',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundRepeat: 'no-repeat'
       }}>
         <div className='container py-2'
              style={{
