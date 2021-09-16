@@ -56,14 +56,14 @@ export default class ItemList extends Component {
               <div className='row mt-4'>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='btn btn-danger btn-block mt-1 shadow-none'
+                          className='btn btn-danger btn-block shadow-none'
                           onClick={handleDeleteDoneTasks}>
                     Delete Completed Tasks
                   </button>
                 </div>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='btn btn-danger btn-block mt-1 shadow-none'
+                          className='btn btn-danger btn-block shadow-none'
                           onClick={clearList}>
                     Delete All Tasks
                   </button>

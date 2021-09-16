@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import uuid from 'uuid'
 import AddItem from './components/AddItem'
 import ItemList from './components/ItemList'
+import background from './images/background.jpg'
 
 export default class App extends Component {
   constructor(props) {
@@ -95,23 +96,25 @@ export default class App extends Component {
       items = this.state.items.filter(item => item.completed)
     }
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='col-10 col-md-8 mx-auto mt-4'>
-            <h3 className='text-capitalize text-center mb-4 text-dark font-weight-bold'>
-              Personal Task Manager
-            </h3>
-            <AddItem item={this.state.item}
-                     editItem={this.state.editItem}
-                     handleChange={this.handleChange}
-                     handleSubmit={this.handleSubmit}/>
-            <ItemList items={items}
-                      clearList={this.clearList}
-                      handleDelete={this.handleDelete}
-                      handleEdit={this.handleEdit}
-                      handleDoneTask={this.handleDoneTask}
-                      handleDeleteDoneTasks={this.handleDeleteDoneTasks}
-                      updateTodosToShow={this.updateTodosToShow}/>
+      <div style={{ backgroundImage: `url(${background})` }}>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-10 col-md-8 mx-auto mt-4'>
+              <h3 className='text-capitalize text-center mb-4 text-dark font-weight-bold'>
+                Personal Task Manager
+              </h3>
+              <AddItem item={this.state.item}
+                editItem={this.state.editItem}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit} />
+              <ItemList items={items}
+                clearList={this.clearList}
+                handleDelete={this.handleDelete}
+                handleEdit={this.handleEdit}
+                handleDoneTask={this.handleDoneTask}
+                handleDeleteDoneTasks={this.handleDeleteDoneTasks}
+                updateTodosToShow={this.updateTodosToShow} />
+            </div>
           </div>
         </div>
       </div>
