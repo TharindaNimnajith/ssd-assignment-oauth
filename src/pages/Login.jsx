@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 import background from '../images/background.jpg'
 
 export default class Login extends Component {
@@ -29,8 +30,8 @@ export default class Login extends Component {
             <img src='todo_icon.ico'
                  alt='Logo Icon'
                  className='rounded'
-                 width='160px'
-                 height='160px'/>
+                 width='170px'
+                 height='170px'/>
           </div>
           <h3 className='text-uppercase mb-4 text-light font-weight-bold mt-4 pt-5'
               style={{
@@ -38,13 +39,17 @@ export default class Login extends Component {
               }}>
             Sign In with Google
           </h3>
-          <div className='d-flex justify-content-center pt-2'>
-            <button type='button'
-                    className='text-uppercase btn btn-primary btn-block shadow-none w-50'>
-              <i className='fab fa-google'/>
-              &nbsp;
-              Sign In With Google
-            </button>
+          <div className='d-flex justify-content-center py-2'>
+            <Link to='home'>
+              <button type='button'
+                      className='text-uppercase btn btn-primary btn-block shadow-none px-4'>
+                <label className='text-decoration-none pt-2'>
+                  <i className='fab fa-google'/>
+                  &nbsp;
+                  Sign In With Google
+                </label>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
