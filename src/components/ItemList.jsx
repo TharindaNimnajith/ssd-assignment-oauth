@@ -15,11 +15,11 @@ export default class ItemList extends Component {
     return (
       <div className='mt-4'>
         <button type='button'
-          className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'>
-          <i className="fab fa-google-drive"></i>{"    "}
-          Upload Task List To My Google Drive
+                className='text-uppercase btn btn-primary btn-block my-1 shadow-none'>
+          <i className='fab fa-google-drive'/>
+          {'    '}
+          Upload Task List to My Google Drive
         </button>
-        <br/>
         <div className='row'>
           <div className='col-md-4'>
             <button type='button'

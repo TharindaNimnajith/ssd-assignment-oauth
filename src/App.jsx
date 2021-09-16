@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import uuid from 'uuid'
 import AddItem from './components/AddItem'
 import ItemList from './components/ItemList'
-import background from './images/background.jpg'
 import ProfileView from './components/ProfileView'
+import background from './images/background.jpg'
 
 export default class App extends Component {
   constructor(props) {
