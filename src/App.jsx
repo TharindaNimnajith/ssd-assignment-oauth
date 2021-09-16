@@ -3,6 +3,7 @@ import uuid from 'uuid'
 import AddItem from './components/AddItem'
 import ItemList from './components/ItemList'
 import background from './images/background.jpg'
+import ProfileView from './components/ProfileView'
 
 export default class App extends Component {
   constructor(props) {
@@ -109,6 +110,7 @@ export default class App extends Component {
                backgroundColor: 'rgba(0, 0, 0, 0.45)',
                minHeight: '100vh'
              }}>
+          <ProfileView/>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
               <h2 className='text-uppercase text-center mb-4 text-light font-weight-bold'
