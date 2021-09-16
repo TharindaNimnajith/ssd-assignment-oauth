@@ -2,9 +2,9 @@
 
 ## Team members
 
-* IT18149654 - Rajapaksha T.N. - it18149654@my.sliit.lk
-* IT18149272 - Perera M.J.F.R. - it18149272@my.sliit.lk
-* IT18148350 - Naidabadu N.I.  - it18148350@my.sliit.lk
+* IT18149654 - Rajapaksha T.N. - it18149654@my.sliit.lk - TharindaNimnajith
+* IT18149272 - Perera M.J.F.R. - it18149272@my.sliit.lk - JanithRushantha
+* IT18148350 - Naidabadu N.I. - it18148350@my.sliit.lk - NehanIlangakoon
 
 ## Steps to build and deploy the application for testing
 

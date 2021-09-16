@@ -5,19 +5,24 @@
   "private": true,
   "author": {
     "email": "it18149654@my.sliit.lk",
-    "name": "Rajapaksha T.N.",
+    "name": "Rajapaksha T.N. (GitHub Username - TharindaNimnajith)",
     "url": "https://github.com/TharindaNimnajith"
   },
   "contributors": [
     {
-      "email": "it18148350@my.sliit.lk",
-      "name": "Naidabadu N.I.",
-      "url": "https://github.com/NehanIlangakoon"
+      "email": "it18149654@my.sliit.lk",
+      "name": "Rajapaksha T.N. (GitHub Username - TharindaNimnajith)",
+      "url": "https://github.com/TharindaNimnajith"
     },
     {
       "email": "it18149272@my.sliit.lk",
-      "name": "Perera M.J.F.R.",
+      "name": "Perera M.J.F.R. (GitHub Username - JanithRushantha)",
       "url": "https://github.com/JanithRushantha"
+    },
+    {
+      "email": "it18148350@my.sliit.lk",
+      "name": "Naidabadu N.I. (GitHub Username - NehanIlangakoon)",
+      "url": "https://github.com/NehanIlangakoon"
     }
   ],
   "keywords": [
