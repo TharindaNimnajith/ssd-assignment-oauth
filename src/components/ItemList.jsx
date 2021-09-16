@@ -16,7 +16,7 @@ export default class ItemList extends Component {
     return (
       <div className='mt-4'>
         <button type='button'
-                className='text-uppercase btn btn-info btn-block mt-1 mb-3 shadow-none'>
+                className='text-uppercase font-weight-bold btn btn-info btn-block py-2 mt-1 mb-3 shadow-none'>
           <i className='fab fa-google-drive'/>
           &nbsp;
           Upload Task List to My Google Drive
