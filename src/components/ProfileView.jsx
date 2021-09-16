@@ -5,20 +5,22 @@ export default class ProfileView extends Component {
     return (
       <div className='card card-body my-3'>
         <div className='row'>
-          <div className='col-1'>
+          <div className='col-1 align-self-center'>
             <img src='todo_icon.ico'
                  className='rounded'
                  alt='Google Account Profile Picture'
                  width='50px'
                  height='50px'/>
           </div>
-          <div className='col-9 text-xl-left justify-content-center align-self-center'>
+          <div className='col-9 h5 align-self-center'>
             Hello, Janith Perera!
           </div>
-          <div className='col-2'>
+          <div className='col-2 align-self-center'>
             <button type='button'
                     className='text-uppercase btn btn-block shadow-none btn-primary'>
-              Logout
+              Sign out
+              &nbsp;
+              <i className='fas fa-sign-out-alt'/>
             </button>
           </div>
         </div>
