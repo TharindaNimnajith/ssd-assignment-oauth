@@ -3,7 +3,7 @@ import uuid from 'uuid'
 import AddItem from '../components/AddItem'
 import ItemList from '../components/ItemList'
 import ProfileView from '../components/ProfileView'
-import background from './images/background.jpg'
+import background from '../images/background.jpg'
 
 export default class TaskApp extends Component {
   constructor(props) {
@@ -124,6 +124,7 @@ export default class TaskApp extends Component {
                        handleChange={this.handleChange}
                        handleSubmit={this.handleSubmit}/>
               <ItemList items={items}
+                        itemsToShow={this.state.itemsToShow}
                         clearList={this.clearList}
                         handleDelete={this.handleDelete}
                         handleEdit={this.handleEdit}
