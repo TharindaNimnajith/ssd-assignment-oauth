@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import uuid from 'uuid'
-import AddItem from './AddItem'
-import ItemList from './ItemList'
-import ProfileView from './ProfileView'
+import AddItem from '../components/AddItem'
+import ItemList from '../components/ItemList'
+import ProfileView from '../components/ProfileView'
 import background from './images/background.jpg'
 
 export default class TaskApp extends Component {
