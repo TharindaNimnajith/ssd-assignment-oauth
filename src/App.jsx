@@ -102,6 +102,7 @@ export default class App extends Component {
               Task App
             </h3>
             <AddItem item={this.state.item}
+                     editItem={this.state.editItem}
                      handleChange={this.handleChange}
                      handleSubmit={this.handleSubmit}/>
             <ItemList items={items}

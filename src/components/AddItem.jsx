@@ -20,12 +20,19 @@ export default class AddItem extends Component {
                 onChange={handleChange} />
             </div>
             <div className='col-2'>
-              <button type='submit'
-                className={`btn btn-block shadow-none ${editItem ? 'btn-success' : 'btn-info'}`}>
-                {
-                  editItem ? 'Edit' : 'Add'
-                }
-              </button>
+              {
+                editItem ? (
+                  <button type='submit'
+                          className='btn btn-block shadow-none btn-success'>
+                    Edit
+                  </button>
+                ) : (
+                  <button type='submit'
+                          className='btn btn-block shadow-none btn-primary'>
+                    Add
+                  </button>
+                )
+              }
             </div>
           </div>
         </form>

@@ -17,21 +17,21 @@ export default class ItemList extends Component {
         <div className='row'>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-info btn-block mt-1 shadow-none'
+                    className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('all')}>
               All
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-info btn-block mt-1 shadow-none'
+                    className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('done')}>
               Completed
             </button>
           </div>
           <div className='col-md-4'>
             <button type='button'
-                    className='btn btn-info btn-block mt-1 shadow-none'
+                    className='btn btn-primary btn-block mt-1 shadow-none'
                     onClick={() => updateTodosToShow('todo')}>
               Remaining
             </button>
