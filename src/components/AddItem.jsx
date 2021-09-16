@@ -14,10 +14,10 @@ export default class AddItem extends Component {
           <div class='row'>
             <div className='col-10'>
               <input type='text'
-                className='form-control shadow-none'
-                placeholder='New Task'
-                value={item}
-                onChange={handleChange} />
+                     className='form-control shadow-none'
+                     placeholder='New Task'
+                     value={item}
+                     onChange={handleChange}/>
             </div>
             <div className='col-2'>
               {

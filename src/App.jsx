@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import uuid from 'uuid'
 import AddItem from './components/AddItem'
 import ItemList from './components/ItemList'
@@ -105,26 +105,26 @@ export default class App extends Component {
         backgroundRepeat: 'no-repeat',
       }}>
         <div className='container py-2'
-          style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.45)',
-            minHeight: '100vh'
-          }}>
+             style={{
+               backgroundColor: 'rgba(0, 0, 0, 0.45)',
+               minHeight: '100vh'
+             }}>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
               <h2 className='text-capitalize text-center mb-4 text-light font-weight-bold'>
                 Personal Task Manager
               </h2>
               <AddItem item={this.state.item}
-                editItem={this.state.editItem}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit} />
+                       editItem={this.state.editItem}
+                       handleChange={this.handleChange}
+                       handleSubmit={this.handleSubmit}/>
               <ItemList items={items}
-                clearList={this.clearList}
-                handleDelete={this.handleDelete}
-                handleEdit={this.handleEdit}
-                handleDoneTask={this.handleDoneTask}
-                handleDeleteDoneTasks={this.handleDeleteDoneTasks}
-                updateTodosToShow={this.updateTodosToShow} />
+                        clearList={this.clearList}
+                        handleDelete={this.handleDelete}
+                        handleEdit={this.handleEdit}
+                        handleDoneTask={this.handleDoneTask}
+                        handleDeleteDoneTasks={this.handleDeleteDoneTasks}
+                        updateTodosToShow={this.updateTodosToShow}/>
             </div>
           </div>
         </div>
