@@ -11,7 +11,7 @@ export default class AddItem extends Component {
     return (
       <div className='card card-body my-3'>
         <form onSubmit={handleSubmit}>
-          <div class='row'>
+          <div className='row'>
             <div className='col-10'>
               <input type='text'
                      className='form-control shadow-none'
