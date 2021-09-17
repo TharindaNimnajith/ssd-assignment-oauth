@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {AppContext} from '../app-context'
-import './global-state.css'
+import {AppContext} from './app-context'
 
 export const GlobalState = props => {
   const [loginData, setLoginData] = useState(null)
