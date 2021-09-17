@@ -1,22 +1,28 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Login from './pages/Login'
-import TaskApp from './pages/TaskApp'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {RouteFilter} from './routes/RouteFilter'
+import {NotFound} from './pages/not-found/NotFound'
+import Login from './pages/login/Login'
+import TaskApp from './pages/task-app/TaskApp'
+import './App.css'
 
 export default class App extends Component {
   render() {
     return (
       <div>
-        <Router>
+        <BrowserRouter>
           <Switch>
-            <Route exact
-                   path='/'
-                   component={Login}/>
-            <Route exact
-                   path='/home'
-                   component={TaskApp}/>
+            <RouteFilter path={'/'}
+                         exact={true}
+                         needAuthentication={false}
+                         component={Login}/>
+            <RouteFilter path={'/home'}
+                         exact={true}
+                         needAuthentication={true}
+                         component={TaskApp}/>
+            <Route component={NotFound}/>
           </Switch>
-        </Router>
+        </BrowserRouter>
       </div>
     )
   }
