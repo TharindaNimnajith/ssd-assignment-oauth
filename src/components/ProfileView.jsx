@@ -3,8 +3,14 @@ import GoogleLogout from 'react-google-login'
 import {clientId} from '../util/util'
 
 export default class ProfileView extends Component {
-  logout = () => {
-    console.log('Logout')
+  logoutSuccess = response => {
+    console.log('Logout Success')
+    console.log(response)
+  }
+
+  logoutFailure = response => {
+    console.log('Logout Failure')
+    console.log(response)
   }
 
   render() {
@@ -24,8 +30,8 @@ export default class ProfileView extends Component {
           <div className='col-2 align-self-center'>
             <GoogleLogout clientId={clientId}
                           buttonText='Sign Out'
-                          onLogoutSuccess={this.logout}
-                          onFailure={this.logout}
+                          onLogoutSuccess={this.logoutSuccess}
+                          onFailure={this.logoutFailure}
                           accessType='online'
                           loginHint='Sign Out'
                           tag='button'

@@ -4,7 +4,14 @@ import {clientId} from '../util/util'
 import background from '../images/background.jpg'
 
 export default class Login extends Component {
-  responseGoogle = response => {
+  loginSuccess = response => {
+    console.log('Login Success')
+    console.log(response.profileObj)
+    console.log(response.tokenObj)
+  }
+
+  loginFailure = response => {
+    console.log('Login Failure')
     console.log(response)
   }
 
@@ -47,8 +54,8 @@ export default class Login extends Component {
           <div className='d-flex justify-content-center py-2'>
             <GoogleLogin clientId={clientId}
                          buttonText='Sign in with Google'
-                         onSuccess={this.responseGoogle}
-                         onFailure={this.responseGoogle}
+                         onSuccess={this.loginSuccess}
+                         onFailure={this.loginFailure}
                          cookiePolicy='single_host_origin'
                          responseType='permission'
                          accessType='online'
