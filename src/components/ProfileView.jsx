@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // import {Link} from 'react-router-dom'
 import GoogleLogout from 'react-google-login'
+import {clientId} from '../util/util'
 
 export default class ProfileView extends Component {
   logout = () => {
@@ -32,7 +33,7 @@ export default class ProfileView extends Component {
             {/*    </label>*/}
             {/*  </button>*/}
             {/*</Link>*/}
-            <GoogleLogout clientId='658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com'
+            <GoogleLogout clientId={clientId}
               buttonText='Sign Out'
               onLogoutSuccess={this.logout}>
             </GoogleLogout>

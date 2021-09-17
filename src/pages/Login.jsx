@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login'
+import {clientId} from '../util/util'
 import background from '../images/background.jpg'
 
 export default class Login extends Component {
@@ -55,7 +56,7 @@ export default class Login extends Component {
             {/*    </label>*/}
             {/*  </button>*/}
             {/*</Link>*/}
-            <GoogleLogin clientId='658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com'
+            <GoogleLogin clientId={clientId}
                          buttonText='Sign in with Google'
                          onSuccess={this.responseGoogle}
                          onFailure={this.responseGoogle}
