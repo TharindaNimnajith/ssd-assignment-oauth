@@ -4,10 +4,22 @@ import {clientId} from '../util/util'
 import background from '../images/background.jpg'
 
 export default class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      profileObj: props.profileObj,
+      tokenObj: props.tokenObj
+    }
+  }
+
   loginSuccess = response => {
     console.log('Login Success')
     console.log(response.profileObj)
     console.log(response.tokenObj)
+    this.setState({
+      profileObj: response.profileObj,
+      tokenObj: response.tokenObj
+    })
   }
 
   loginFailure = response => {

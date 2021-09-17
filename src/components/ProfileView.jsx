@@ -14,6 +14,11 @@ export default class ProfileView extends Component {
   }
 
   render() {
+    const {
+      profileObj,
+      tokenObj
+    } = this.props
+
     return (
       <div className='card card-body my-3'>
         <div className='row'>
@@ -25,7 +30,7 @@ export default class ProfileView extends Component {
                  height='50px'/>
           </div>
           <div className='col-9 h5 align-self-center'>
-            Hello, Janith Perera!
+            Hello, {profileObj.name}!
           </div>
           <div className='col-2 align-self-center'>
             <GoogleLogout clientId={clientId}

@@ -14,7 +14,9 @@ export default class TaskApp extends Component {
       itemsToShow: 'all',
       id: uuid(),
       item: '',
-      editItem: false
+      editItem: false,
+      profileObj: props.profileObj,
+      tokenObj: props.tokenObj
     }
   }
 
@@ -90,6 +92,7 @@ export default class TaskApp extends Component {
 
   render() {
     let items = []
+
     if (this.state.itemsToShow === 'all') {
       items = this.state.items
     } else if (this.state.itemsToShow === 'todo') {
@@ -97,6 +100,7 @@ export default class TaskApp extends Component {
     } else if (this.state.itemsToShow === 'done') {
       items = this.state.items.filter(item => item.completed)
     }
+
     return (
       <div style={{
         backgroundImage: `url(${background})`,
@@ -111,7 +115,8 @@ export default class TaskApp extends Component {
                backgroundColor: 'rgba(0, 0, 0, 0.45)',
                minHeight: '100vh'
              }}>
-          <ProfileView/>
+          <ProfileView profileObj={this.state.profileObj}
+                       tokenObj={this.state.tokenObj}/>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
               <h2 className='text-uppercase text-center mb-4 text-light font-weight-bold'

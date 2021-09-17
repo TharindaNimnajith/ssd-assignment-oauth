@@ -13,6 +13,7 @@ export default class ItemList extends Component {
       handleDeleteDoneTasks,
       updateTodosToShow
     } = this.props
+
     return (
       <div className='mt-4'>
         <button type='button'

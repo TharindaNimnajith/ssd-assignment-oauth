@@ -8,6 +8,7 @@ export default class AddItem extends Component {
       handleSubmit,
       editItem
     } = this.props
+
     return (
       <div className='card card-body my-3'>
         <form onSubmit={handleSubmit}>
