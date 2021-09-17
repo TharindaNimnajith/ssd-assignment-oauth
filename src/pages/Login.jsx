@@ -52,6 +52,7 @@ export default class Login extends Component {
                          cookiePolicy='single_host_origin'
                          responseType='permission'
                          accessType='online'
+                         loginHint='Sign in with Google'
                          tag='button'
                          type='button'
                          autoLoad={false}

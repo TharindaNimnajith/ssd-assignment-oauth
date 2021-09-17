@@ -23,9 +23,19 @@ export default class ProfileView extends Component {
           </div>
           <div className='col-2 align-self-center'>
             <GoogleLogout clientId={clientId}
-              buttonText='Sign Out'
-              onLogoutSuccess={this.logout}>
-            </GoogleLogout>
+                          buttonText='Sign Out'
+                          onLogoutSuccess={this.logout}
+                          onFailure={this.logout}
+                          accessType='online'
+                          loginHint='Sign Out'
+                          tag='button'
+                          type='button'
+                          fetchBasicProfile={true}
+                          disabled={false}
+                          uxMode='popup'
+                          theme='light'
+                          icon={true}
+                          isSignedIn={false}/>
           </div>
         </div>
       </div>
