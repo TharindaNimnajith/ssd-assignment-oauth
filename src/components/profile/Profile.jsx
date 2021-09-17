@@ -2,17 +2,21 @@ import React, {Component} from 'react'
 import GoogleLogout from 'react-google-login'
 import {clientId} from '../../util/util'
 import {AppContext} from '../../global/AppContext'
+import {removeFromLocalStorage} from '../../helpers/helpers'
+import {authStoreKey} from '../../config/config'
 
 export default class Profile extends Component {
   static contextType = AppContext
 
-  logoutSuccess = response => {
-    console.log('Logout Success')
-    console.log(response)
+  logoutSuccess = () => {
+    this.context.logout()
+    removeFromLocalStorage(authStoreKey).then(() => {
+    })
+    this.props.history.push('/')
   }
 
   logoutFailure = response => {
-    console.log('Logout Failure')
+    console.log('Logout Failed')
     console.log(response)
   }
 

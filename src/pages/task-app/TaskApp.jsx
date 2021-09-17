@@ -31,7 +31,10 @@ export default class TaskApp extends Component {
       title: this.state.item,
       completed: false
     }
-    const updatedItems = [...this.state.items, newItem]
+    const updatedItems = [
+      ...this.state.items,
+      newItem
+    ]
     if (this.state.item.length > 0)
       this.setState({
         items: updatedItems,

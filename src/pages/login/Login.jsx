@@ -17,7 +17,7 @@ export default class Login extends Component {
   }
 
   loginFailure = response => {
-    console.log('Login Failure')
+    console.log('Login Failed')
     console.log(response)
   }
 

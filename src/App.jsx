@@ -20,7 +20,8 @@ export default class App extends Component {
                          exact={true}
                          needAuthentication={true}
                          component={TaskApp}/>
-            <Route component={NotFound}/>
+            <Route needAuthentication={false}
+                   component={NotFound}/>
           </Switch>
         </BrowserRouter>
       </div>
