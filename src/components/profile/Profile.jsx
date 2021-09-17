@@ -1,23 +1,16 @@
 import React, {Component} from 'react'
-import GoogleLogout from 'react-google-login'
-import {clientId} from '../../util/util'
+import {Link} from 'react-router-dom'
 import {AppContext} from '../../global/AppContext'
-import {removeFromLocalStorage} from '../../helpers/helpers'
 import {authStoreKey} from '../../config/config'
+import {removeFromLocalStorage} from '../../helpers/helpers'
 
 export default class Profile extends Component {
   static contextType = AppContext
 
-  logoutSuccess = () => {
+  handleLogout = () => {
     this.context.logout()
     removeFromLocalStorage(authStoreKey).then(() => {
     })
-    this.props.history.push('/')
-  }
-
-  logoutFailure = response => {
-    console.log('Logout Failed')
-    console.log(response)
   }
 
   render() {
@@ -25,30 +18,32 @@ export default class Profile extends Component {
       <div className='card card-body my-3'>
         <div className='row'>
           <div className='col-1 align-self-center'>
-            <img src='todo_icon.ico'
-                 className='rounded'
+            <img src={this.context.loginData.profileObj.imageUrl}
+                 className='rounded-circle'
                  alt='Google Account Profile'
                  width='50px'
                  height='50px'/>
           </div>
-          <div className='col-9 h5 align-self-center'>
-            Hello, {this.context.loginData.profileObj.name}!
+          <div className='col-9 align-self-center'>
+            <p className='mb-0 font-weight-bold'>
+              Hello, {this.context.loginData.profileObj.name}!
+            </p>
+            <small>
+              {this.context.loginData.profileObj.email}
+            </small>
           </div>
           <div className='col-2 align-self-center'>
-            <GoogleLogout clientId={clientId}
-                          buttonText='Sign Out'
-                          onLogoutSuccess={this.logoutSuccess}
-                          onFailure={this.logoutFailure}
-                          accessType='online'
-                          loginHint='Sign Out'
-                          tag='button'
-                          type='button'
-                          fetchBasicProfile={true}
-                          disabled={false}
-                          uxMode='popup'
-                          theme='light'
-                          icon={true}
-                          isSignedIn={false}/>
+            <Link to='/'>
+              <button type='button'
+                      className='text-uppercase btn btn-block shadow-none btn-primary'
+                      onClick={this.handleLogout}>
+                <label className='text-decoration-none pt-2'>
+                  Sign out
+                  &nbsp;
+                  <i className='fas fa-sign-out-alt'/>
+                </label>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
