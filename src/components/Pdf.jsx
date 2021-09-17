@@ -1,8 +1,5 @@
-
 import React from 'react';
-import { PDFViewer, Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-import ReactPDF from '@react-pdf/renderer';
-import ItemList from './ItemList'
+import {Document, Page, PDFViewer, StyleSheet, Text, View} from '@react-pdf/renderer';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -19,19 +16,19 @@ const styles = StyleSheet.create({
 
 // Create Document Component
 const MyDocument = () => (
-<PDFViewer>
-  <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text>Section #1</Text>
+  <PDFViewer>
+    <Document>
+      <Page size="A4" style={styles.page}>
+        <View style={styles.section}>
+          <Text>Section #1</Text>
 
-      </View>
-      <View style={styles.section}>
-        <Text>Section #2</Text>
-        
-      </View>
-    </Page>
-  </Document>
+        </View>
+        <View style={styles.section}>
+          <Text>Section #2</Text>
+
+        </View>
+      </Page>
+    </Document>
   </PDFViewer>
 );
 

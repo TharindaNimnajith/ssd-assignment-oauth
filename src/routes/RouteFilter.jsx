@@ -5,13 +5,7 @@ import {checkUserInLocalStorage} from '../helpers/helpers'
 import {Loader} from '../components/loader/Loader'
 import './RouteFilter.css'
 
-export const RouteFilter = (
-  {
-    component: Component,
-    needAuthentication,
-    ...rest
-  }
-) => {
+export const RouteFilter = ({component: Component, needAuthentication, ...rest}) => {
   const appContext = useContext(AppContext)
 
   const [authenticated, setAuthenticated] = useState(null)
@@ -28,36 +22,26 @@ export const RouteFilter = (
   }, [Component])
 
   return (
-    <div>
-      <Route {...rest}
-             render={
-               props => {
-                 if (needAuthentication && authenticated === null) {
-                   return (
-                     <Loader/>
-                   )
-                 } else if (needAuthentication && !authenticated) {
-                   return (
-                     <Redirect to={'/'}/>
-                   )
-                 } else if (!needAuthentication && authenticated) {
-                   return (
-                     <Redirect to={'/home'}/>
-                   )
-                 } else if (!needAuthentication) {
-                   return (
-                     <Component {...props} />
-                   )
-                 } else if (authenticated) {
-                   return (
-                     <Redirect to={'/home'}/>
-                   )
-                 } else {
-                   return (
-                     <Loader/>
-                   )
-                 }
-               }}/>
-    </div>
+    <Route {...rest}
+           render={
+             props => {
+               if (needAuthentication && authenticated === null) {
+                 return (
+                   <Loader/>
+                 )
+               } else if (needAuthentication && !authenticated) {
+                 return (
+                   <Redirect to='/'/>
+                 )
+               } else if (authenticated) {
+                 return (
+                   <Redirect to='/home'/>
+                 )
+               } else if (!needAuthentication) {
+                 return (
+                   <Component {...props} />
+                 )
+               }
+             }}/>
   )
 }
