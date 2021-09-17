@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import GoogleLogout from 'react-google-login'
-import {clientId} from '../util/util'
+import {clientId} from '../../util/util'
+import {AppContext} from '../../global/AppContext'
 
-export default class ProfileView extends Component {
+export default class Profile extends Component {
+  static contextType = AppContext
+
   logoutSuccess = response => {
     console.log('Logout Success')
     console.log(response)
@@ -25,7 +28,7 @@ export default class ProfileView extends Component {
                  height='50px'/>
           </div>
           <div className='col-9 h5 align-self-center'>
-            Hello, Janith Perera!
+            Hello, {this.context.loginData.profileObj.name}!
           </div>
           <div className='col-2 align-self-center'>
             <GoogleLogout clientId={clientId}
