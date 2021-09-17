@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
+import GoogleLogout from 'react-google-login'
 
 export default class ProfileView extends Component {
+  logout = () => {
+    console.log('Logout')
+  }
+
   render() {
     return (
       <div className='card card-body my-3'>
@@ -17,16 +22,20 @@ export default class ProfileView extends Component {
             Hello, Janith Perera!
           </div>
           <div className='col-2 align-self-center'>
-            <Link to='/'>
-              <button type='button'
-                      className='text-uppercase btn btn-block shadow-none btn-primary'>
-                <label className='text-decoration-none pt-2'>
-                  Sign out
-                  &nbsp;
-                  <i className='fas fa-sign-out-alt'/>
-                </label>
-              </button>
-            </Link>
+            {/*<Link to='/'>*/}
+            {/*  <button type='button'*/}
+            {/*          className='text-uppercase btn btn-block shadow-none btn-primary'>*/}
+            {/*    <label className='text-decoration-none pt-2'>*/}
+            {/*      Sign out*/}
+            {/*      &nbsp;*/}
+            {/*      <i className='fas fa-sign-out-alt'/>*/}
+            {/*    </label>*/}
+            {/*  </button>*/}
+            {/*</Link>*/}
+            <GoogleLogout clientId='658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com'
+              buttonText='Sign Out'
+              onLogoutSuccess={this.logout}>
+            </GoogleLogout>
           </div>
         </div>
       </div>
