@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-// import {Link} from 'react-router-dom'
 import GoogleLogin from 'react-google-login'
 import {clientId} from '../util/util'
 import background from '../images/background.jpg'
@@ -46,21 +45,22 @@ export default class Login extends Component {
             Sign in with Google
           </h3>
           <div className='d-flex justify-content-center py-2'>
-            {/*<Link to='home'>*/}
-            {/*  <button type='button'*/}
-            {/*          className='text-uppercase btn btn-primary btn-block shadow-none px-4'>*/}
-            {/*    <label className='text-decoration-none pt-2'>*/}
-            {/*      <i className='fab fa-google'/>*/}
-            {/*      &nbsp;*/}
-            {/*      Sign in With Google*/}
-            {/*    </label>*/}
-            {/*  </button>*/}
-            {/*</Link>*/}
             <GoogleLogin clientId={clientId}
                          buttonText='Sign in with Google'
                          onSuccess={this.responseGoogle}
                          onFailure={this.responseGoogle}
-                         cookiePolicy={'single_host_origin'}/>
+                         cookiePolicy='single_host_origin'
+                         responseType='permission'
+                         accessType='online'
+                         tag='button'
+                         type='button'
+                         autoLoad={false}
+                         fetchBasicProfile={true}
+                         disabled={false}
+                         uxMode='popup'
+                         theme='light'
+                         icon={true}
+                         isSignedIn={false}/>
           </div>
         </div>
       </div>
