@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SingleItem from './SingleItem'
+import SingleItem from '../single-item/SingleItem'
 
 export default class ItemList extends Component {
   render() {

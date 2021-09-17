@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import uuid from 'uuid'
-import AddItem from '../components/AddItem'
-import ItemList from '../components/ItemList'
-import ProfileView from '../components/ProfileView'
-import {itemData} from '../data/data'
-import background from '../images/background.jpg'
+import {itemData} from '../../data/data'
+import AddItem from '../../components/add-item/AddItem'
+import ItemList from '../../components/item-list/ItemList'
+import Profile from '../../components/profile/Profile'
+import background from '../../images/background.jpg'
 
 export default class TaskApp extends Component {
   constructor(props) {
@@ -113,7 +113,7 @@ export default class TaskApp extends Component {
                backgroundColor: 'rgba(0, 0, 0, 0.45)',
                minHeight: '100vh'
              }}>
-          <ProfileView/>
+          <Profile/>
           <div className='row'>
             <div className='col-10 col-md-8 mx-auto mt-4'>
               <h2 className='text-uppercase text-center mb-4 text-light font-weight-bold'

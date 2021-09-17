@@ -1,15 +1,19 @@
 import React, {Component} from 'react'
 import GoogleLogin from 'react-google-login'
-import {clientId} from '../util/util'
-import background from '../images/background.jpg'
+import {clientId} from '../../util/util'
+import {AppContext} from '../../global/AppContext'
+import {authStoreKey} from '../../config/config'
+import {setLocalStorageItem} from '../../helpers/helpers'
+import background from '../../images/background.jpg'
 
 export default class Login extends Component {
+  static contextType = AppContext
+
   loginSuccess = response => {
-    console.log('Login Success')
-    this.setState({
-      profileObj: response.profileObj,
-      tokenObj: response.tokenObj
+    this.context.login(response)
+    setLocalStorageItem(authStoreKey, response).then(() => {
     })
+    this.props.history.push('/home')
   }
 
   loginFailure = response => {
