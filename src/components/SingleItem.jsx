@@ -10,6 +10,7 @@ export default class SingleItem extends Component {
       handleDoneTask,
       completed
     } = this.props
+
     return (
       <li className='list-group-item d-flex justify-content-between my-2'>
         <h6 className={`mt-1 mb-0 align-middle ${completed ? 'completed-task' : ''}`}>

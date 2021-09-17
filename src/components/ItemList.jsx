@@ -5,6 +5,7 @@ export default class ItemList extends Component {
   render() {
     const {
       items,
+      itemsToShow,
       clearList,
       handleDelete,
       handleEdit,
@@ -12,35 +13,66 @@ export default class ItemList extends Component {
       handleDeleteDoneTasks,
       updateTodosToShow
     } = this.props
+
     return (
       <div className='mt-4'>
         <button type='button'
-          className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'>
-          <i className="fab fa-google-drive"></i>{"    "}
-          Upload Task List To My Google Drive
+                className='text-uppercase font-weight-bold btn btn-info btn-block py-2 mt-1 mb-3 shadow-none'>
+          <i className='fab fa-google-drive'/>
+          &nbsp;
+          Upload Task List to My Google Drive
         </button>
-        <br/>
         <div className='row'>
           <div className='col-md-4'>
-            <button type='button'
-                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
-                    onClick={() => updateTodosToShow('all')}>
-              All Tasks
-            </button>
+            {
+              itemsToShow === 'all' ? (
+                <button type='button'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('all')}>
+                  All Tasks
+                </button>
+              ) : (
+                <button type='button'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('all')}>
+                  All Tasks
+                </button>
+              )
+            }
           </div>
           <div className='col-md-4'>
-            <button type='button'
-                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
-                    onClick={() => updateTodosToShow('done')}>
-              Completed Tasks
-            </button>
+            {
+              itemsToShow === 'todo' ? (
+                <button type='button'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('todo')}>
+                  Remaining Tasks
+                </button>
+              ) : (
+                <button type='button'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('todo')}>
+                  Remaining Tasks
+                </button>
+              )
+            }
           </div>
           <div className='col-md-4'>
-            <button type='button'
-                    className='text-uppercase btn btn-primary btn-block mt-1 shadow-none'
-                    onClick={() => updateTodosToShow('todo')}>
-              Remaining Tasks
-            </button>
+            {
+              itemsToShow === 'done' ? (
+                <button type='button'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('done')}>
+                  Completed Tasks
+                </button>
+              ) : (
+                <button type='button'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        onClick={() => updateTodosToShow('done')}>
+                  Completed Tasks
+                </button>
+              )
+            }
           </div>
         </div>
         {
