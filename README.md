@@ -1,6 +1,6 @@
 # SSD Assignment 2
 
-## Team members
+## Group members
 
 * IT18149654 - Rajapaksha T.N. - it18149654@my.sliit.lk - TharindaNimnajith
 * IT18149272 - Perera M.J.F.R. - it18149272@my.sliit.lk - JanithRushantha

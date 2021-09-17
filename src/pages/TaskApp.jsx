@@ -3,13 +3,14 @@ import uuid from 'uuid'
 import AddItem from '../components/AddItem'
 import ItemList from '../components/ItemList'
 import ProfileView from '../components/ProfileView'
+import {itemData} from '../data/data'
 import background from '../images/background.jpg'
 
 export default class TaskApp extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      items: [],
+      items: itemData,
       itemsToShow: 'all',
       id: uuid(),
       item: '',
