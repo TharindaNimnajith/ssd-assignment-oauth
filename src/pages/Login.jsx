@@ -17,8 +17,8 @@ export default class Login extends Component {
         <div className='container align-self-center rounded py-5'
              style={{
                backgroundColor: 'rgba(0, 0, 0, 0.6)',
-               height: '60vh',
-               width: '40vw'
+               minHeight: '60vh',
+               width: '50vw'
              }}>
           <h1 className='text-uppercase mb-4 text-light font-weight-bold pb-4'
               style={{

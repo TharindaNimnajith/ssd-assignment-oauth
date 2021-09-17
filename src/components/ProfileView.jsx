@@ -9,7 +9,7 @@ export default class ProfileView extends Component {
           <div className='col-1 align-self-center'>
             <img src='todo_icon.ico'
                  className='rounded'
-                 alt='Google Account Profile Picture'
+                 alt='Google Account Profile'
                  width='50px'
                  height='50px'/>
           </div>
