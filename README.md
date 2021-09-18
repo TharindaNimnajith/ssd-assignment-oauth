@@ -1,11 +1,5 @@
 # SSD Assignment 2
 
-## Group members
-
-* IT18149654 - Rajapaksha T.N. - it18149654@my.sliit.lk - TharindaNimnajith
-* IT18149272 - Perera M.J.F.R. - it18149272@my.sliit.lk - JanithRushantha
-* IT18148350 - Naidabadu N.I. - it18148350@my.sliit.lk - NehanIlangakoon
-
 ## Steps to build and deploy the application for testing
 
 * Open a CLI on the root folder.
@@ -19,3 +13,9 @@
 * The user can log in to the system using Google Sign In.
 * The application retrieves the user details of the user from the Google account such as name and profile picture.
 * The user can create a pdf report of the todo list and upload it to user's Google Drive.
+
+## Group members
+
+* IT18149654 - Rajapaksha T.N. - it18149654@my.sliit.lk - TharindaNimnajith
+* IT18149272 - Perera M.J.F.R. - it18149272@my.sliit.lk - JanithRushantha
+* IT18148350 - Naidabadu N.I. - it18148350@my.sliit.lk - NehanIlangakoon

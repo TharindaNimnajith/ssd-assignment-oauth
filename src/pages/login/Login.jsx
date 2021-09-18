@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import GoogleLogin from 'react-google-login'
-import {clientId} from '../../util/util'
+import {CLIENT_ID} from '../../util/util'
 import {AppContext} from '../../global/AppContext'
 import {authStoreKey} from '../../config/config'
 import {setLocalStorageItem} from '../../helpers/helpers'
@@ -58,7 +58,7 @@ export default class Login extends Component {
             Sign in with Google
           </h3>
           <div className='d-flex justify-content-center py-2'>
-            <GoogleLogin clientId={clientId}
+            <GoogleLogin clientId={CLIENT_ID}
                          buttonText='Sign in with Google'
                          onSuccess={this.loginSuccess}
                          onFailure={this.loginFailure}
