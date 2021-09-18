@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import GoogleLogin from 'react-google-login'
-import {CLIENT_ID} from '../../util/util'
+import {CLIENT_ID, SCOPES} from '../../util/util'
 import {AppContext} from '../../global/AppContext'
 import {authStoreKey} from '../../config/config'
 import {setLocalStorageItem} from '../../helpers/helpers'
@@ -60,6 +60,8 @@ export default class Login extends Component {
           <div className='d-flex justify-content-center py-2'>
             <GoogleLogin clientId={CLIENT_ID}
                          buttonText='Sign in with Google'
+                         className='px-2'
+                         scope={SCOPES}
                          onSuccess={this.loginSuccess}
                          onFailure={this.loginFailure}
                          cookiePolicy='single_host_origin'
