@@ -33,11 +33,11 @@ export const RouteFilter = ({component: Component, needAuthentication, ...rest})
                  return (
                    <Redirect to='/'/>
                  )
-               } else if (authenticated) {
+               } else if (!needAuthentication && authenticated) {
                  return (
                    <Redirect to='/home'/>
                  )
-               } else if (!needAuthentication) {
+               } else if (!needAuthentication || authenticated) {
                  return (
                    <Component {...props} />
                  )
