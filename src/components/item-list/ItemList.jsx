@@ -6,19 +6,26 @@ export default class ItemList extends Component {
   static contextType = AppContext
 
   handleUpload = items => {
+    const date = new Date()
     const fileContent = 'sample text'
-    const file = new Blob([fileContent], {type: 'text/plain'})
+    const file = new Blob([fileContent], {
+      type: 'text/plain'
+    })
     const metadata = {
-      'name': 'sampleName',
-      'mimeType': 'text/plain'
+      'name': 'Your Todo List - ' + date.toISOString().split('T')[0],
+      'mimeType': 'application/pdf'
     }
     const accessToken = this.context.loginData.tokenObj.access_token
     const form = new FormData()
-    form.append('metadata', new Blob([JSON.stringify(metadata)], {type: 'application/json'}))
+    form.append('metadata', new Blob([JSON.stringify(metadata)], {
+      type: 'application/json'
+    }))
     form.append('file', file)
     fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
       method: 'POST',
-      headers: new Headers({'Authorization': 'Bearer ' + accessToken}),
+      headers: new Headers({
+        'Authorization': 'Bearer ' + accessToken
+      }),
       body: form
     }).then(res => {
       return res.json()
