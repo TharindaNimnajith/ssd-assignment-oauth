@@ -7,13 +7,14 @@ export default class ItemList extends Component {
 
   handleUpload = items => {
     const date = new Date()
-    const fileContent = 'sample text'
+    // add real data as file content
+    const fileContent = 'Personal Task Manager - Your Daily Tasks'
     const file = new Blob([fileContent], {
       type: 'text/plain'
     })
     const metadata = {
       'name': 'Your Todo List - ' + date.toISOString().split('T')[0],
-      'mimeType': 'application/pdf'
+      'mimeType': 'text/plain'
     }
     const accessToken = this.context.loginData.tokenObj.access_token
     const form = new FormData()
@@ -30,6 +31,7 @@ export default class ItemList extends Component {
     }).then(res => {
       return res.json()
     }).then(function (val) {
+      // add a confirmation alert
       console.log(val)
     })
   }
