@@ -9,11 +9,11 @@ export default class ItemList extends Component {
     const date = new Date()
     const currentDate = date.toISOString().split('T')[0]
     let fileContent = 'Personal Task Manager - Your Daily Tasks - ' + currentDate + '\n\n'
-    for (let i = 0; i < items.length; i++) {
+    for (let item of items) {
       let status = 'Not Completed'
-      if (items[i].completed)
+      if (item.completed)
         status = 'Completed'
-      let temp = items[i].title + ' - ' + status + '\n'
+      let temp = item.title + ' - ' + status + '\n'
       fileContent = fileContent.concat(temp)
     }
     const file = new Blob([fileContent], {
@@ -37,9 +37,8 @@ export default class ItemList extends Component {
       body: form
     }).then(res => {
       return res.json()
-    }).then(function (val) {
-      alert('Your file has been uploaded to your Google Drive!')
-      console.log(val)
+    }).then(() => {
+      alert('A text file with the task list has been uploaded to your Google Drive successfully!')
     })
   }
 
