@@ -12,7 +12,7 @@
 * This is a simple todo application where the user can add, update, delete, and view their daily todo activities.
 * The user can log in to the system using Google Sign In.
 * The application retrieves the user details of the user from the Google account such as name and profile picture.
-* The user can create a pdf report of the todo list and upload it to user's Google Drive.
+* The user can create a report of the todo list and upload it to user's Google Drive as a text file.
 
 ## Group members
 
