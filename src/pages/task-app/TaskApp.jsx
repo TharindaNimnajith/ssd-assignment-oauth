@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import uuid from 'uuid'
+import {v1 as uuid} from 'uuid'
 import {itemData} from '../../data/data'
 import AddItem from '../../components/add-item/AddItem'
 import ItemList from '../../components/item-list/ItemList'

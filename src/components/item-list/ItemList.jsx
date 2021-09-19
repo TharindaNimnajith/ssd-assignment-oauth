@@ -58,7 +58,7 @@ export default class ItemList extends Component {
     return (
       <div className='mt-4'>
         <button type='button'
-                className='text-uppercase font-weight-bold btn btn-info btn-block py-2 mt-1 mb-3 shadow-none'
+                className='text-uppercase font-weight-bold btn btn-info btn-block py-2 mt-1 mb-3 shadow-none w-100'
                 onClick={() => this.handleUpload(items)}>
           <i className='fab fa-google-drive'/>
           &nbsp;
@@ -69,13 +69,13 @@ export default class ItemList extends Component {
             {
               itemsToShow === 'all' ? (
                 <button type='button'
-                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('all')}>
                   All Tasks
                 </button>
               ) : (
                 <button type='button'
-                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('all')}>
                   All Tasks
                 </button>
@@ -86,13 +86,13 @@ export default class ItemList extends Component {
             {
               itemsToShow === 'todo' ? (
                 <button type='button'
-                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('todo')}>
                   Remaining Tasks
                 </button>
               ) : (
                 <button type='button'
-                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('todo')}>
                   Remaining Tasks
                 </button>
@@ -103,13 +103,13 @@ export default class ItemList extends Component {
             {
               itemsToShow === 'done' ? (
                 <button type='button'
-                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-warning btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('done')}>
                   Completed Tasks
                 </button>
               ) : (
                 <button type='button'
-                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none'
+                        className='text-uppercase btn btn-secondary btn-block mt-1 shadow-none w-100'
                         onClick={() => updateTodosToShow('done')}>
                   Completed Tasks
                 </button>
@@ -136,14 +136,14 @@ export default class ItemList extends Component {
               <div className='row mt-4'>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='text-uppercase btn btn-danger btn-block shadow-none'
+                          className='text-uppercase btn btn-danger btn-block shadow-none w-100'
                           onClick={handleDeleteDoneTasks}>
                     Delete Completed Tasks
                   </button>
                 </div>
                 <div className='col-md-6'>
                   <button type='button'
-                          className='text-uppercase btn btn-danger btn-block shadow-none'
+                          className='text-uppercase btn btn-danger btn-block shadow-none w-100'
                           onClick={clearList}>
                     Delete All Tasks
                   </button>

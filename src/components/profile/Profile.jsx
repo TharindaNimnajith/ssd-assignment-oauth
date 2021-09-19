@@ -19,7 +19,7 @@ export default class Profile extends Component {
     return (
       <div className='card card-body my-3'>
         <div className='row'>
-          <div className='col-1 align-self-center'>
+          <div className='col-1 align-self-center text-end pe-1'>
             {
               // Access the profile details from the Google account
               this.context.loginData ? (
@@ -39,7 +39,7 @@ export default class Profile extends Component {
           </div>
           {
             this.context.loginData ? (
-              <div className='col-9 align-self-center'>
+              <div className='col-8 align-self-center'>
                 <p className='mb-0 font-weight-bold'>
                   Hello, {this.context.loginData.profileObj.name}!
                 </p>
@@ -48,15 +48,15 @@ export default class Profile extends Component {
                 </small>
               </div>
             ) : (
-              <div className='col-9 align-self-center'/>
+              <div className='col-8 align-self-center'/>
             )
           }
-          <div className='col-2 align-self-center'>
+          <div className='col-3 align-self-center text-end pe-5'>
             <Link to='/'>
               <button type='button'
                       className='text-uppercase btn btn-block shadow-none btn-primary'
                       onClick={this.handleLogout}>
-                <label className='text-decoration-none pt-2'>
+                <label className='text-decoration-none'>
                   Sign out
                   &nbsp;
                   <i className='fas fa-sign-out-alt'/>

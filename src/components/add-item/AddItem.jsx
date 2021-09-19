@@ -24,12 +24,12 @@ export default class AddItem extends Component {
               {
                 editItem ? (
                   <button type='submit'
-                          className='text-uppercase btn btn-block shadow-none btn-success'>
+                          className='text-uppercase btn btn-block shadow-none btn-success w-100'>
                     Edit
                   </button>
                 ) : (
                   <button type='submit'
-                          className='text-uppercase btn btn-block shadow-none btn-primary'>
+                          className='text-uppercase btn btn-block shadow-none btn-primary w-100'>
                     Add
                   </button>
                 )
