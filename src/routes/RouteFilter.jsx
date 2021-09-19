@@ -5,6 +5,7 @@ import {checkUserInLocalStorage} from '../helpers/helpers'
 import {Loader} from '../components/loader/Loader'
 import './RouteFilter.css'
 
+// Handle the authorization for routing
 export const RouteFilter = ({component: Component, needAuthentication, ...rest}) => {
   const appContext = useContext(AppContext)
 
