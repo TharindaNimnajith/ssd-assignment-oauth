@@ -7,33 +7,42 @@ export default class ItemList extends Component {
 
   handleUpload = items => {
     const date = new Date()
-    // add real data as file content
-    const fileContent = 'Personal Task Manager - Your Daily Tasks'
-    const file = new Blob([fileContent], {
-      type: 'text/plain'
-    })
-    const metadata = {
-      'name': 'Your Todo List - ' + date.toISOString().split('T')[0],
-      'mimeType': 'text/plain'
+    const currentDate = date.toISOString().split('T')[0]
+    let fileContent = 'Personal Task Manager - Your Daily Tasks' + currentDate + '\n\n'
+    for (let i = 0; i < items.length; i++) {
+      let status = 'Not Completed'
+      if (items[i].completed)
+        status = 'Completed'
+      let temp = items[i].title + ' - ' + status + '\n'
+      fileContent = fileContent.concat(temp);
+
     }
-    const accessToken = this.context.loginData.tokenObj.access_token
-    const form = new FormData()
-    form.append('metadata', new Blob([JSON.stringify(metadata)], {
-      type: 'application/json'
-    }))
-    form.append('file', file)
-    fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
-      method: 'POST',
-      headers: new Headers({
-        'Authorization': 'Bearer ' + accessToken
-      }),
-      body: form
-    }).then(res => {
-      return res.json()
-    }).then(function (val) {
-      // add a confirmation alert
-      console.log(val)
-    })
+    console.log(fileContent)
+    // const file = new Blob([fileContent], {
+    //   type: 'text/plain'
+    // })
+    // const metadata = {
+    //   'name': 'Your Todo List - ' + currentDate,
+    //   'mimeType': 'text/plain'
+    // }
+    // const accessToken = this.context.loginData.tokenObj.access_token
+    // const form = new FormData()
+    // form.append('metadata', new Blob([JSON.stringify(metadata)], {
+    //   type: 'application/json'
+    // }))
+    // form.append('file', file)
+    // fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
+    //   method: 'POST',
+    //   headers: new Headers({
+    //     'Authorization': 'Bearer ' + accessToken
+    //   }),
+    //   body: form
+    // }).then(res => {
+    //   return res.json()
+    // }).then(function (val) {
+    //   alert('Your file has been uploaded to your Google Drive!')
+    //   console.log(val)
+    // })
   }
 
   render() {
