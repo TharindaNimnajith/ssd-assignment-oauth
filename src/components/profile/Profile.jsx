@@ -8,6 +8,7 @@ import icon from '../../images/todo_icon.png'
 export default class Profile extends Component {
   static contextType = AppContext
 
+  // Logout function
   handleLogout = () => {
     this.context.logout()
     removeFromLocalStorage(authStoreKey).then(() => {
@@ -20,6 +21,7 @@ export default class Profile extends Component {
         <div className='row'>
           <div className='col-1 align-self-center'>
             {
+              // Access the profile details from the Google account
               this.context.loginData ? (
                 <img src={this.context.loginData.profileObj.imageUrl}
                      className='rounded-circle'

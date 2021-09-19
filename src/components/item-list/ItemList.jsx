@@ -5,6 +5,7 @@ import SingleItem from '../single-item/SingleItem'
 export default class ItemList extends Component {
   static contextType = AppContext
 
+  // Function to upload the report to the Google Drive using the access token
   handleUpload = items => {
     const date = new Date()
     const currentDate = date.toISOString().split('T')[0]
