@@ -59,7 +59,24 @@ const addUser = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
+  let user
 
+  const {
+    id
+  } = req.params
+
+  const {
+    taskArray
+  } = req.body
+
+  try {
+    user = await UserModel.findOne({
+      googleId: id
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send(error)
+  }
 }
 
 const getUser = async (req, res) => {
