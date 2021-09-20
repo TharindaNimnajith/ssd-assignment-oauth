@@ -39,6 +39,14 @@ const addUser = async (req, res) => {
       idpId,
       expiresIn,
       firstIssuedAt,
+      expiresAt,
+      googleId,
+      imageUrl,
+      email,
+      name,
+      givenName,
+      familyName,
+      taskArray
     })
     await user.save()
     res.send({
