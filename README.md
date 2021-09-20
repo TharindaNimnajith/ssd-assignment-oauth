@@ -4,6 +4,11 @@
 
 * Open a CLI on the root folder.
 * Install the relevant dependencies by running 'npm install' command.
+* Run the node.js server by running 'nodemon app' command.
+* The node.js server will run on 'http://localhost:5000' URL.
+* Open a new CLI on the root folder.
+* Navigate to the client folder with 'cd client' command.
+* Install the relevant dependencies by running 'npm install' command.
 * Start the server by running 'npm start' command.
 * The React.js application will run on 'http://localhost:3000' URL.
 
