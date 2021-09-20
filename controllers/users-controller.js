@@ -96,6 +96,12 @@ const getUser = async (req, res) => {
     user = await UserModel.findOne({
       googleId: id
     })
+    if (user.taskArray)
+      taskArray = user.taskArray
+    res.send({
+      status: 200,
+      taskArray: taskArray
+    })
   } catch (error) {
     console.error(error)
     res.status(500).send(error)
