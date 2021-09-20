@@ -85,7 +85,21 @@ const updateUser = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
+  let user
+  let taskArray = []
 
+  const {
+    id
+  } = req.params
+
+  try {
+    user = await UserModel.findOne({
+      googleId: id
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).send(error)
+  }
 }
 
 exports.addUser = addUser
