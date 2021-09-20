@@ -106,7 +106,7 @@ export default class Login extends Component {
             {this.state.error}
           </ModalBody>
           <ModalFooter>
-            <Button color='primary'
+            <Button color='primary px-5'
                     onClick={this.toggle}>
               OK
             </Button>

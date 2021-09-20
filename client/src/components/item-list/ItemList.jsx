@@ -89,7 +89,7 @@ export default class ItemList extends Component {
             {UPLOADED}
           </ModalBody>
           <ModalFooter>
-            <Button color='primary'
+            <Button color='primary px-5'
                     onClick={this.toggle}>
               OK
             </Button>
