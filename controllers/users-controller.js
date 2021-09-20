@@ -73,6 +73,11 @@ const updateUser = async (req, res) => {
     user = await UserModel.findOne({
       googleId: id
     })
+    user.taskArray = taskArray
+    await user.save()
+    res.send({
+      status: 201
+    })
   } catch (error) {
     console.error(error)
     res.status(500).send(error)
