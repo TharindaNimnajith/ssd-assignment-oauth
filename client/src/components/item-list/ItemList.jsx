@@ -1,15 +1,30 @@
 import React, {Component} from 'react'
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 import {AppContext} from '../../global/AppContext'
+import {TITLE, UPLOADED} from '../../const/const'
+import {GOOGLE_DRIVE_API} from '../../util/util'
+import {Loader} from '../loader/Loader'
 import SingleItem from '../single-item/SingleItem'
 
 export default class ItemList extends Component {
   static contextType = AppContext
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false,
+      show: false
+    }
+  }
+
   // Function to upload the report to the Google Drive using the access token
   handleUpload = items => {
+    this.setState({
+      loading: true
+    })
     const date = new Date()
     const currentDate = date.toISOString().split('T')[0]
-    let fileContent = 'Personal Task Manager - Your Daily Tasks - ' + currentDate + '\n\n'
+    let fileContent = TITLE + ' - ' + currentDate + '\n\n'
     for (let item of items) {
       let status = 'Not Completed'
       if (item.completed)
@@ -21,7 +36,7 @@ export default class ItemList extends Component {
       type: 'text/plain'
     })
     const metadata = {
-      'name': 'Your Todo List - ' + currentDate,
+      'name': TITLE + ' - ' + currentDate,
       'mimeType': 'text/plain'
     }
     const accessToken = this.context.loginData.tokenObj.access_token
@@ -30,7 +45,7 @@ export default class ItemList extends Component {
       type: 'application/json'
     }))
     form.append('file', file)
-    fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id', {
+    fetch(GOOGLE_DRIVE_API, {
       method: 'POST',
       headers: new Headers({
         'Authorization': 'Bearer ' + accessToken
@@ -39,7 +54,16 @@ export default class ItemList extends Component {
     }).then(res => {
       return res.json()
     }).then(() => {
-      alert('A text file with the task list has been uploaded to your Google Drive successfully!')
+      this.setState({
+        loading: false,
+        show: true
+      })
+    })
+  }
+
+  toggle = () => {
+    this.setState({
+      show: false
     })
   }
 
@@ -57,6 +81,20 @@ export default class ItemList extends Component {
 
     return (
       <div className='mt-4'>
+        <Modal isOpen={this.state.show}>
+          <ModalHeader>
+            Success
+          </ModalHeader>
+          <ModalBody>
+            {UPLOADED}
+          </ModalBody>
+          <ModalFooter>
+            <Button color='primary'
+                    onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
         <button type='button'
                 className='text-uppercase font-weight-bold btn btn-info btn-block py-2 mt-1 mb-3 shadow-none w-100'
                 onClick={() => this.handleUpload(items)}>
@@ -118,7 +156,13 @@ export default class ItemList extends Component {
           </div>
         </div>
         {
-          items.length === 0 ? '' :
+          items.length === 0 ? (
+            <div className='text-center'>
+              <label className='my-5 h1 text-white'>
+                Your task list is empty. Add some daily tasks!
+              </label>
+            </div>
+          ) : (
             <ul className='list-group my-4'>
               {
                 items.map(item => {
@@ -150,6 +194,12 @@ export default class ItemList extends Component {
                 </div>
               </div>
             </ul>
+          )
+        }
+        {
+          this.state.loading && (
+            <Loader/>
+          )
         }
       </div>
     )

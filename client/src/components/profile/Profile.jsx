@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {AppContext} from '../../global/AppContext'
-import {authStoreKey} from '../../config/config'
+import {LOCAL_STORAGE_KEY} from '../../config/config'
 import {removeFromLocalStorage} from '../../helpers/helpers'
 import icon from '../../images/todo_icon.png'
 
@@ -11,7 +11,7 @@ export default class Profile extends Component {
   // Logout function
   handleLogout = () => {
     this.context.logout()
-    removeFromLocalStorage(authStoreKey).then(() => {
+    removeFromLocalStorage(LOCAL_STORAGE_KEY).then(() => {
     })
   }
 

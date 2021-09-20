@@ -1,16 +1,30 @@
 import React, {Component} from 'react'
 import GoogleLogin from 'react-google-login'
+import axios from 'axios'
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
 import {CLIENT_ID, SCOPES} from '../../util/util'
+import {USER_API} from '../../common/common'
+import {LOCAL_STORAGE_KEY} from '../../config/config'
+import {ERROR, TITLE} from '../../const/const'
 import {AppContext} from '../../global/AppContext'
-import {authStoreKey} from '../../config/config'
 import {setLocalStorageItem} from '../../helpers/helpers'
+import {Loader} from '../../components/loader/Loader'
 import background from '../../images/background.jpg'
 
 export default class Login extends Component {
   static contextType = AppContext
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false,
+      error: '',
+      showError: false
+    }
+  }
+
   // Redirect the user to the home page upon successful authorization from Google Sign in.
-  // The OAuth 2.0 authorization framework is a protocol that allows a user to grant 
+  // The OAuth 2.0 authorization framework is a protocol that allows a user to grant
   // a third-party web site or application access to the user's protected resources,
   // without necessarily revealing their long-term credentials or even their identity.
   // Used grant type: Authorization Code grant type
@@ -19,15 +33,58 @@ export default class Login extends Component {
   // OAuth 2.0 scope https://www.googleapis.com/auth/drive is used for Google APIs which
   // allows to view, edit, create, and delete all of the user's Google Drive files.
   loginSuccess = response => {
-    this.context.login(response)
-    setLocalStorageItem(authStoreKey, response).then(() => {
+    this.setState({
+      error: '',
+      showError: false,
+      loading: true,
+      modal: false
     })
-    this.props.history.push('/home')
+    const data = {
+      'tokenType': response.tokenObj.token_type,
+      'accessToken': response.tokenObj.access_token,
+      'scope': response.tokenObj.scope,
+      'loginHint': response.tokenObj.login_hint,
+      'idToken': response.tokenObj.id_token,
+      'idpId': response.tokenObj.idpId,
+      'expiresIn': response.tokenObj.expires_in,
+      'firstIssuedAt': response.tokenObj.first_issued_at,
+      'expiresAt': response.tokenObj.expires_at,
+      'googleId': response.profileObj.googleId,
+      'imageUrl': response.profileObj.imageUrl,
+      'email': response.profileObj.email,
+      'name': response.profileObj.name,
+      'givenName': response.profileObj.givenName,
+      'familyName': response.profileObj.familyName
+    }
+    axios.post(USER_API, data).then(res => {
+      if (res.data.status === 201) {
+        this.context.login(response)
+        setLocalStorageItem(LOCAL_STORAGE_KEY, response).then(() => {
+        })
+        this.props.history.push('/home')
+      }
+      this.setState({
+        loading: false
+      })
+    }).catch(error => {
+      this.setState({
+        error: ERROR,
+        showError: true,
+        loading: false
+      })
+      console.error(error)
+    })
   }
 
   loginFailure = response => {
-    console.log('Login Failed')
-    console.log(response)
+    console.error('Login Failed')
+    console.error(response)
+  }
+
+  toggle = () => {
+    this.setState({
+      showError: false
+    })
   }
 
   render() {
@@ -41,6 +98,20 @@ export default class Login extends Component {
              backgroundSize: 'cover',
              backgroundRepeat: 'no-repeat'
            }}>
+        <Modal isOpen={this.state.showError}>
+          <ModalHeader>
+            Error
+          </ModalHeader>
+          <ModalBody>
+            {this.state.error}
+          </ModalBody>
+          <ModalFooter>
+            <Button color='primary'
+                    onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
         <div className='container align-self-center rounded py-5'
              style={{
                backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -51,7 +122,7 @@ export default class Login extends Component {
               style={{
                 letterSpacing: '2px'
               }}>
-            Personal Task Manager
+            {TITLE}
           </h1>
           <div>
             <img src='todo_icon.ico'
@@ -87,6 +158,11 @@ export default class Login extends Component {
                          icon={true}
                          isSignedIn={false}/>
           </div>
+          {
+            this.state.loading && (
+              <Loader/>
+            )
+          }
         </div>
       </div>
     )

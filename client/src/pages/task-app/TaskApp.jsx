@@ -1,21 +1,35 @@
 import React, {Component} from 'react'
 import {v1 as uuid} from 'uuid'
-import {itemData} from '../../data/data'
+import axios from 'axios'
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap'
+import {USER_API} from '../../common/common'
+import {ERROR, TITLE} from '../../const/const'
+import {AppContext} from '../../global/AppContext'
+import {Loader} from '../../components/loader/Loader'
 import AddItem from '../../components/add-item/AddItem'
 import ItemList from '../../components/item-list/ItemList'
 import Profile from '../../components/profile/Profile'
 import background from '../../images/background.jpg'
 
 export default class TaskApp extends Component {
+  static contextType = AppContext
+
   constructor(props) {
     super(props)
     this.state = {
-      items: itemData,
+      loading: false,
+      error: '',
+      showError: false,
+      items: [],
       itemsToShow: 'all',
       id: uuid(),
       item: '',
       editItem: false
     }
+  }
+
+  componentDidMount() {
+    this.getTaskList()
   }
 
   handleChange = event => {
@@ -42,6 +56,7 @@ export default class TaskApp extends Component {
         item: '',
         editItem: false
       })
+    this.updateTaskList(updatedItems)
   }
 
   updateTodosToShow = string => {
@@ -56,8 +71,9 @@ export default class TaskApp extends Component {
       return item
     })
     this.setState({
-      items: filteredItems,
+      items: filteredItems
     })
+    this.updateTaskList(filteredItems)
   }
 
   handleDelete = id => {
@@ -65,6 +81,7 @@ export default class TaskApp extends Component {
     this.setState({
       items: filteredItems
     })
+    this.updateTaskList(filteredItems)
   }
 
   handleEdit = id => {
@@ -76,6 +93,7 @@ export default class TaskApp extends Component {
       item: selectedItem.title,
       editItem: true
     })
+    this.updateTaskList(filteredItems)
   }
 
   handleDeleteDoneTasks = () => {
@@ -83,24 +101,79 @@ export default class TaskApp extends Component {
     this.setState({
       items: filteredItems
     })
+    this.updateTaskList(filteredItems)
   }
 
   clearList = () => {
     this.setState({
       items: []
     })
+    this.updateTaskList([])
+  }
+
+  getTaskList = () => {
+    this.setState({
+      error: '',
+      showError: false,
+      loading: true
+    })
+    axios.get(`${USER_API}${this.context.loginData.profileObj.googleId}`).then(res => {
+      if (res.data.status === 200) {
+        this.setState({
+          items: res.data.taskArray,
+          loading: false
+        })
+      }
+    }).catch(error => {
+      this.setState({
+        error: ERROR,
+        showError: true,
+        loading: false
+      })
+      console.error(error)
+    })
+  }
+
+  updateTaskList = items => {
+    this.setState({
+      error: '',
+      showError: false,
+      loading: true
+    })
+    const data = {
+      'taskArray': items
+    }
+    axios.put(`${USER_API}${this.context.loginData.profileObj.googleId}`, data).then(res => {
+      if (res.data.status === 201) {
+        this.setState({
+          loading: false
+        })
+      }
+    }).catch(error => {
+      this.setState({
+        error: ERROR,
+        showError: true,
+        loading: false
+      })
+      console.error(error)
+    })
+  }
+
+  toggle = () => {
+    this.setState({
+      showError: false
+    })
   }
 
   render() {
     let items = []
 
-    if (this.state.itemsToShow === 'all') {
+    if (this.state.itemsToShow === 'all')
       items = this.state.items
-    } else if (this.state.itemsToShow === 'todo') {
+    else if (this.state.itemsToShow === 'todo')
       items = this.state.items.filter(item => !item.completed)
-    } else if (this.state.itemsToShow === 'done') {
+    else if (this.state.itemsToShow === 'done')
       items = this.state.items.filter(item => item.completed)
-    }
 
     return (
       <div style={{
@@ -111,6 +184,20 @@ export default class TaskApp extends Component {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
       }}>
+        <Modal isOpen={this.state.showError}>
+          <ModalHeader>
+            Error
+          </ModalHeader>
+          <ModalBody>
+            {this.state.error}
+          </ModalBody>
+          <ModalFooter>
+            <Button color='primary'
+                    onClick={this.toggle}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </Modal>
         <div className='container py-2'
              style={{
                backgroundColor: 'rgba(0, 0, 0, 0.45)',
@@ -123,7 +210,7 @@ export default class TaskApp extends Component {
                   style={{
                     letterSpacing: '2px'
                   }}>
-                Personal Task Manager
+                {TITLE}
               </h2>
               <AddItem item={this.state.item}
                        editItem={this.state.editItem}
@@ -139,6 +226,11 @@ export default class TaskApp extends Component {
                         updateTodosToShow={this.updateTodosToShow}/>
             </div>
           </div>
+          {
+            this.state.loading && (
+              <Loader/>
+            )
+          }
         </div>
       </div>
     )
