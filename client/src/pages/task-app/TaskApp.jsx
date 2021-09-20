@@ -186,7 +186,7 @@ export default class TaskApp extends Component {
       }}>
         <Modal isOpen={this.state.showError}>
           <ModalHeader>
-            Error
+            ERROR
           </ModalHeader>
           <ModalBody>
             {this.state.error}
@@ -194,7 +194,7 @@ export default class TaskApp extends Component {
           <ModalFooter>
             <Button color='primary'
                     onClick={this.toggle}>
-              Cancel
+              OK
             </Button>
           </ModalFooter>
         </Modal>

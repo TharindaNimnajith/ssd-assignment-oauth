@@ -83,7 +83,7 @@ export default class ItemList extends Component {
       <div className='mt-4'>
         <Modal isOpen={this.state.show}>
           <ModalHeader>
-            Success
+            SUCCESS
           </ModalHeader>
           <ModalBody>
             {UPLOADED}
@@ -91,7 +91,7 @@ export default class ItemList extends Component {
           <ModalFooter>
             <Button color='primary'
                     onClick={this.toggle}>
-              Cancel
+              OK
             </Button>
           </ModalFooter>
         </Modal>
